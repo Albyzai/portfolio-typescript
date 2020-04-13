@@ -12,7 +12,7 @@ const HeroSection = styled(Section)`
     background: ${props => props.theme.colors.secondary};
 
     @media only screen and (min-width: ${(props) =>
-      props.theme.flexboxgrid.breakpoints.sm}em) {
+      props.theme.breakpoints.mobile}em) {
           height: 60vw;
   }
 `
@@ -31,7 +31,7 @@ const BlogHero = () => {
 
   return (
       <HeroSection>
-          <StyledGrid>
+          <StyledGrid container>
               <StyledHeading>
                   BLOG
               </StyledHeading>

@@ -19,17 +19,16 @@ const TextBox = styled.div`
   transform: translateX(0);
   min-height: 200px;
   padding: 2em 0;
-
   @media only screen and (min-width: ${(props) =>
-      props.theme.breakpoints.mobile}px) {
+      props.theme.breakpoints.tablet}px) {
     position: absolute;
-    width: 100%;
+    width: 50%;
     top: 50%;
     margin-left: 0;
     transform: ${(props) =>
       props.alignment === "left"
-        ? "translateX(-50%) translateY(-50%)"
-        : "translateX(50%) translateY(-50%)"};
+        ? "translateY(-50%)"
+        : "translateX(100%) translateY(-50%)"};
     margin-top: 0;
     min-height: 60%;
   }
@@ -46,7 +45,7 @@ const TextBoxContentWrapper = styled.div`
   @media only screen and (min-width: ${(props) =>
       props.theme.breakpoints.mobile}px) {
     height: 100%;
-    width: 50%;
+    width: 100%;
     padding-left: 2em;
 
     align-self: flex-start;
@@ -63,7 +62,7 @@ const CarouselWrapper = styled.div`
   overflow: hidden;
 
   @media only screen and (min-width: ${(props) =>
-      props.theme.breakpoints.mobile}px) {
+      props.theme.breakpoints.tablet}px) {
     position: absolute;
     height: 600px;
     top: 0;
@@ -83,8 +82,9 @@ const CarouselWrapper = styled.div`
 
 const StyledSection = styled(Section)`
   position: relative;
+  height: auto;
   @media only screen and (min-width: ${(props) =>
-      props.theme.breakpoints.mobile}px) {
+      props.theme.breakpoints.tablet}px) {
     height: 600px;
   }
 `;
@@ -105,8 +105,7 @@ const Inception = ({ title, text, alignment, images }) => {
   return (
     <StyledSection>
       <CarouselWrapper alignment={alignment}>
-        <StyledCarousel
-        >
+        <StyledCarousel navAlignment='top' fullWidthNav={true}>
           {images.map((image, index) => (
             <Slide key={index} index={index}>
               <StyledImage src={image} />

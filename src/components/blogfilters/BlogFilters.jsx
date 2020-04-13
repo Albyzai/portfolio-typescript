@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import { Slider } from "react-semantic-ui-range";
 
 const FiltersWrapper = styled.div`
     width: 100%;
@@ -18,12 +19,33 @@ const RangeSliderWrapper = styled.div`
 //     display: none;
 // `
 
-const BlogFilters = () => (
-    <FiltersWrapper>
+const BlogFilters = () => {
+    const [value, setValue] = useState(0)
+
+    const settings = {
+        start: 0,
+        min: 0,
+        max: 10,
+        onChange: value => setValue(value)
+    }
+
+    const handleValueChange = e => {
+        let value = parseInt(e.target.value);
+        if (!value) {
+          value = 0;
+        }
+        setValue(e.target.value);
+      };
+
+    return (
+        <FiltersWrapper>
         <RangeSliderWrapper>
+            <Slider value={value} color="red" settings={settings} />
         </RangeSliderWrapper>
 
     </FiltersWrapper>
-)
+    )
+} 
+
 
 export default BlogFilters;

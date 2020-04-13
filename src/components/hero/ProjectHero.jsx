@@ -303,11 +303,11 @@ const StyledImage = styled(Image)`
 const ProjectHero = () => (
     <HeroSection>
       <Grid>
-        <Grid.Row>
+        <Grid.Row centered>
           <CarouselColumn computer={10} tablet={16} mobile={16}>
             <DiagonalShape src={RightShape} />
             <BottomDiagonalShape src={BottomShape} />
-          <Carousel>
+          <Carousel navAlignment='aboveBottom'>
           {images.map((image, index) => (
                   <Slide key={index} index={index}>
                     <StyledImage src={image} />
@@ -318,8 +318,8 @@ const ProjectHero = () => (
           </CarouselColumn>
           <DescriptionColumn
             computer={6}
-            tablet={16}
-            mobile={16}
+            tablet={10}
+            mobile={10}
           >
                       <RightContent>
             <ProjectTitle as='h2'>Would You Rather</ProjectTitle>
